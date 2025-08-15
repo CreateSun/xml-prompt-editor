@@ -1,15 +1,49 @@
 @import "tailwindcss";
 
 :root {
+  /* 浅色清爽主题配色方案 */
   --background: #ffffff;
-  --foreground: #171717;
+  --background-secondary: #f0f0f0;
+  --foreground: #383a42;
+  --foreground-muted: #5c6370;
+  --primary: #007acc;
+  --primary-hover: #005a99;
+  --secondary: #f0f0f0;
+  --secondary-hover: #e5e5e5;
+  --border: #e5e5e5;
+  
+  /* XML代码高亮颜色 */
+  --xml-tag: #007acc;
+  --xml-attribute: #e45649;
+  --xml-value: #50a14f;
+  --xml-namespace: #a626a4;
+  --xml-comment: #5c6370;
+  --xml-cdata: #0184bc;
+  --xml-text: #383a42;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-border: var(--border);
+  
+  /* XML代码高亮颜色映射 */
+  --color-xml-tag: var(--xml-tag);
+  --color-xml-attribute: var(--xml-attribute);
+  --color-xml-value: var(--xml-value);
+  --color-xml-namespace: var(--xml-namespace);
+  --color-xml-comment: var(--xml-comment);
+  --color-xml-cdata: var(--xml-cdata);
+  --color-xml-text: var(--xml-text);
+  
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +56,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
