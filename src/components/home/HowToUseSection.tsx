@@ -102,14 +102,14 @@ export default function HowToUseSection() {
                     </h4>
                   </div>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-foreground-muted mb-4">
                   {step.description}
                 </p>
                 <ul className="space-y-2">
                   {step.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start">
                       <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                      <span className="text-sm text-gray-600 dark:text-gray-400">{detail}</span>
+                      <span className="text-sm text-foreground-muted">{detail}</span>
                     </li>
                   ))}
                 </ul>
@@ -120,19 +120,19 @@ export default function HowToUseSection() {
 
         {/* Features */}
         <div className="mb-20">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-12">
+          <h3 className="text-2xl font-bold text-foreground text-center mb-12">
             Key Features
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <div key={index} className="text-center">
-                <div className="mx-auto w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4">
-                  <feature.icon className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <feature.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                <h4 className="text-lg font-semibold text-foreground mb-2">
                   {feature.title}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-foreground-muted text-sm">
                   {feature.description}
                 </p>
               </div>
@@ -141,43 +141,43 @@ export default function HowToUseSection() {
         </div>
 
         {/* Quick Start Guide */}
-        <div className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <div className="bg-background rounded-lg p-8 shadow-lg">
+          <h3 className="text-2xl font-bold text-foreground mb-6">
             Quick Start Guide
           </h3>
           <div className="space-y-6">
-            <div className="border-l-4 border-blue-500 pl-6">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            <div className="border-l-4 border-primary pl-6">
+              <h4 className="text-lg font-semibold text-foreground mb-2">
                 1. Access the Editor
               </h4>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-foreground-muted">
                 The editor is now directly available on this page. No need to navigate elsewhere!
               </p>
             </div>
             
             <div className="border-l-4 border-green-500 pl-6">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              <h4 className="text-lg font-semibold text-foreground mb-2">
                 2. Select a Template
               </h4>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-foreground-muted">
                 Click &quot;Show Templates&quot; to browse available templates. Choose one that matches your use case.
               </p>
             </div>
             
             <div className="border-l-4 border-yellow-500 pl-6">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              <h4 className="text-lg font-semibold text-foreground mb-2">
                 3. Customize Content
               </h4>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-foreground-muted">
                 Edit the XML content in the editor. Use the validation panel to check for errors.
               </p>
             </div>
             
             <div className="border-l-4 border-purple-500 pl-6">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              <h4 className="text-lg font-semibold text-foreground mb-2">
                 4. Export & Use
               </h4>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-foreground-muted">
                 Download your XML prompt or copy it to clipboard for use in your AI applications.
               </p>
             </div>
@@ -185,32 +185,32 @@ export default function HowToUseSection() {
         </div>
 
         {/* Tips */}
-        <div className="mt-16 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-8">
-          <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-4">
+        <div className="mt-16 bg-primary/10 rounded-lg p-8">
+          <h3 className="text-2xl font-bold text-primary mb-4">
             Pro Tips
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Use Variables</h4>
-              <p className="text-blue-800 dark:text-blue-200 text-sm">
+              <h4 className="font-semibold text-primary mb-2">Use Variables</h4>
+              <p className="text-primary/80 text-sm">
                 Leverage template variables like {'{query}'} to make your prompts dynamic and reusable.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Validate Regularly</h4>
-              <p className="text-blue-800 dark:text-blue-200 text-sm">
+              <h4 className="font-semibold text-primary mb-2">Validate Regularly</h4>
+              <p className="text-primary/80 text-sm">
                 Check the validation panel frequently to ensure your XML is properly structured.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Format Your Code</h4>
-              <p className="text-blue-800 dark:text-blue-200 text-sm">
+              <h4 className="font-semibold text-primary mb-2">Format Your Code</h4>
+              <p className="text-primary/80 text-sm">
                 Use the format button to maintain clean, readable XML structure.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Save Templates</h4>
-              <p className="text-blue-800 dark:text-blue-200 text-sm">
+              <h4 className="font-semibold text-primary mb-2">Save Templates</h4>
+              <p className="text-primary/80 text-sm">
                 Save frequently used templates for quick access in future projects.
               </p>
             </div>

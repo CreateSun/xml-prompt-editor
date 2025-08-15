@@ -102,7 +102,7 @@ const TemplateSelector = ({ onSelect, currentTemplate }: TemplateSelectorProps) 
                       {template.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+                          className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-background-secondary text-foreground"
                         >
                           {tag}
                         </span>
@@ -112,14 +112,14 @@ const TemplateSelector = ({ onSelect, currentTemplate }: TemplateSelectorProps) 
                   <div className="flex items-center gap-2 ml-4">
                     <button
                       onClick={() => handlePreview(template)}
-                      className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                      className="p-1 text-foreground-muted hover:text-foreground transition-colors"
                       title="Preview template"
                     >
                       <Eye className="h-4 w-4" />
                     </button>
                     <button
                       onClick={() => handleTemplateSelect(template)}
-                      className="px-3 py-1 text-xs font-medium text-blue-600 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-900/50 rounded-md transition-colors"
+                      className="px-3 py-1 text-xs font-medium text-primary bg-primary/10 hover:bg-primary/20 rounded-md transition-colors"
                     >
                       Use
                     </button>
@@ -134,36 +134,36 @@ const TemplateSelector = ({ onSelect, currentTemplate }: TemplateSelectorProps) 
       {/* Preview Modal */}
       {previewTemplate && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-900 rounded-lg max-w-2xl w-full mx-4 max-h-[80vh] overflow-hidden">
-            <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="bg-background rounded-lg max-w-2xl w-full mx-4 max-h-[80vh] overflow-hidden">
+            <div className="px-6 py-4 border-b border-border">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                <h3 className="text-lg font-medium text-foreground">
                   {previewTemplate.name}
                 </h3>
                 <button
                   onClick={() => setPreviewTemplate(null)}
-                  className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  className="text-foreground-muted hover:text-foreground"
                 >
                   ×
                 </button>
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-foreground-muted mt-1">
                 {previewTemplate.description}
               </p>
             </div>
             <div className="px-6 py-4">
-              <div className="bg-gray-900 rounded-lg p-4 font-mono text-sm text-gray-100 overflow-x-auto">
+              <div className="bg-background-secondary rounded-lg p-4 font-mono text-sm text-foreground overflow-x-auto">
                 <pre className="whitespace-pre-wrap">{previewTemplate.content}</pre>
               </div>
               <div className="mt-4">
-                <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">Variables:</h4>
+                <h4 className="text-sm font-medium text-foreground mb-2">Variables:</h4>
                 <div className="space-y-2">
                   {previewTemplate.variables.map((variable) => (
                     <div key={variable.name} className="flex items-center justify-between text-sm">
-                      <span className="text-gray-600 dark:text-gray-400">
+                      <span className="text-foreground-muted">
                         {variable.name} {variable.required && <span className="text-red-500">*</span>}
                       </span>
-                      <span className="text-gray-500 dark:text-gray-500">
+                      <span className="text-foreground-muted">
                         {variable.type} - {variable.defaultValue}
                       </span>
                     </div>
@@ -171,11 +171,11 @@ const TemplateSelector = ({ onSelect, currentTemplate }: TemplateSelectorProps) 
                 </div>
               </div>
             </div>
-            <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+            <div className="px-6 py-4 border-t border-border bg-background-secondary">
               <div className="flex justify-end gap-3">
                 <button
                   onClick={() => setPreviewTemplate(null)}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-foreground bg-background border border-border rounded-md hover:bg-background-secondary transition-colors"
                 >
                   Close
                 </button>
@@ -184,7 +184,7 @@ const TemplateSelector = ({ onSelect, currentTemplate }: TemplateSelectorProps) 
                     handleTemplateSelect(previewTemplate)
                     setPreviewTemplate(null)
                   }}
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary-hover rounded-md transition-colors"
                 >
                   Use Template
                 </button>

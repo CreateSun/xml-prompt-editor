@@ -169,9 +169,9 @@ const ValidationPanel = ({ content, onErrorClick }: ValidationPanelProps) => {
       case 'warning':
         return <AlertTriangle className="h-4 w-4 text-yellow-500" />
       case 'info':
-        return <Info className="h-4 w-4 text-blue-500" />
+        return <Info className="h-4 w-4 text-primary" />
       default:
-        return <Info className="h-4 w-4 text-gray-500" />
+        return <Info className="h-4 w-4 text-foreground-muted" />
     }
   }
 
@@ -182,9 +182,9 @@ const ValidationPanel = ({ content, onErrorClick }: ValidationPanelProps) => {
       case 'warning':
         return 'border-yellow-200 bg-yellow-50 dark:bg-yellow-900/20 dark:border-yellow-800'
       case 'info':
-        return 'border-blue-200 bg-blue-50 dark:bg-blue-900/20 dark:border-blue-800'
+        return 'border-primary/20 bg-primary/10 dark:bg-primary/20 dark:border-primary/30'
       default:
-        return 'border-gray-200 bg-gray-50 dark:bg-gray-900/20 dark:border-gray-800'
+        return 'border-border bg-background-secondary'
     }
   }
 
@@ -193,14 +193,14 @@ const ValidationPanel = ({ content, onErrorClick }: ValidationPanelProps) => {
   const hasInfo = errors.some(e => e.severity === 'info')
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
+    <div className="bg-background rounded-lg border border-border">
       {/* Header */}
-      <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+      <div className="px-4 py-3 border-b border-border">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white">Validation</h3>
+          <h3 className="text-lg font-medium text-foreground">Validation</h3>
           <div className="flex items-center space-x-2">
             {isValidating && (
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
             )}
             {!isValidating && (
               <div className="flex items-center space-x-1">
@@ -215,7 +215,7 @@ const ValidationPanel = ({ content, onErrorClick }: ValidationPanelProps) => {
                   </span>
                 )}
                 {hasInfo && (
-                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200">
+                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
                     {errors.filter(e => e.severity === 'info').length} Info
                   </span>
                 )}
@@ -229,17 +229,17 @@ const ValidationPanel = ({ content, onErrorClick }: ValidationPanelProps) => {
       <div className="max-h-96 overflow-y-auto">
         {isValidating ? (
           <div className="px-4 py-8 text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-500 dark:text-gray-400">Validating XML...</p>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-foreground-muted">Validating XML...</p>
           </div>
         ) : errors.length === 0 ? (
           <div className="px-4 py-8 text-center">
             <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
             <p className="text-green-600 dark:text-green-400 font-medium">XML is valid!</p>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">No validation errors found</p>
+            <p className="text-foreground-muted text-sm mt-1">No validation errors found</p>
           </div>
         ) : (
-          <div className="divide-y divide-gray-200 dark:divide-gray-700">
+          <div className="divide-y divide-border">
             {errors.map((error, index) => (
               <div
                 key={index}
@@ -248,11 +248,11 @@ const ValidationPanel = ({ content, onErrorClick }: ValidationPanelProps) => {
                 <div className="flex items-start space-x-3">
                   {getErrorIcon(error.type)}
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-900 dark:text-white">
+                    <p className="text-sm text-foreground">
                       {error.message}
                     </p>
                     {error.line && error.column && (
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      <p className="text-xs text-foreground-muted mt-1">
                         Line {error.line}, Column {error.column}
                       </p>
                     )}
@@ -260,7 +260,7 @@ const ValidationPanel = ({ content, onErrorClick }: ValidationPanelProps) => {
                   {error.line && error.column && onErrorClick && (
                     <button
                       onClick={() => onErrorClick(error.line!, error.column!)}
-                      className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                      className="text-xs text-primary hover:text-primary-hover"
                     >
                       Go to
                     </button>

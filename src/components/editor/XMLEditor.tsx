@@ -113,16 +113,16 @@ const XMLEditor = ({
   }
 
   return (
-    <div className={`bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 ${className}`}>
+    <div className={`bg-background rounded-lg border border-border ${className}`}>
       {/* Editor Header */}
-      <div className="bg-gray-100 dark:bg-gray-700 px-4 py-3 border-b border-gray-200 dark:border-gray-600">
+      <div className="bg-background-secondary px-4 py-3 border-b border-border">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-red-500 rounded-full"></div>
             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
           </div>
-          <span className="text-sm text-gray-600 dark:text-gray-300 font-medium">prompt.xml</span>
+          <span className="text-sm text-foreground-muted font-medium">prompt.xml</span>
           <div className="flex items-center space-x-2">
             {isDirty && (
               <span className="text-xs text-orange-600 dark:text-orange-400 px-2 py-1 bg-orange-100 dark:bg-orange-900/30 rounded">
@@ -130,7 +130,7 @@ const XMLEditor = ({
               </span>
             )}
             {lastSaved && (
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="text-xs text-foreground-muted">
                 Last saved: {lastSaved.toLocaleTimeString()}
               </span>
             )}
@@ -139,12 +139,12 @@ const XMLEditor = ({
       </div>
 
       {/* Editor Toolbar */}
-      <div className="bg-gray-50 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-600">
+      <div className="bg-background-secondary px-4 py-2 border-b border-border">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <button
               onClick={handleFormat}
-              className="px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="px-3 py-2 text-xs font-medium text-foreground bg-background border border-border rounded hover:bg-background-secondary transition-colors"
               title="Format XML"
             >
               <RotateCcw className="h-3 w-3 inline mr-1" />
@@ -154,7 +154,7 @@ const XMLEditor = ({
           <div className="flex items-center space-x-2">
             <button
               onClick={handleCopy}
-              className="px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="px-3 py-2 text-xs font-medium text-foreground bg-background border border-border rounded hover:bg-background-secondary transition-colors"
               title="Copy to clipboard"
             >
               <Copy className="h-3 w-3 inline mr-1" />
@@ -162,7 +162,7 @@ const XMLEditor = ({
             </button>
             <button
               onClick={handleDownload}
-              className="px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="px-3 py-2 text-xs font-medium text-foreground bg-background border border-border rounded hover:bg-background-secondary transition-colors"
               title="Download file"
             >
               <Download className="h-3 w-3 inline mr-1" />
@@ -170,7 +170,7 @@ const XMLEditor = ({
             </button>
             <button
               onClick={handleSave}
-              className="px-3 py-2 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded transition-colors"
+              className="px-3 py-2 text-xs font-medium text-white bg-primary hover:bg-primary-hover rounded transition-colors"
               title="Save changes"
             >
               <Save className="h-3 w-3 inline mr-1" />
