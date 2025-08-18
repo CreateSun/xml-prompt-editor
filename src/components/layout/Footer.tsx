@@ -1,25 +1,22 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const Footer = () => {
   const navigation = {
     main: [
-      { name: 'Home', href: '/' },
-      { name: 'Editor', href: '/editor' },
-      { name: 'Templates', href: '/editor/templates' },
-      { name: 'How to Use', href: '/how-to-use' },
-      { name: 'FAQ', href: '/faq' },
-      { name: 'Blog', href: '/blog' },
+      { name: "Home", href: "/" },
+      { name: "How to Use", href: "/how-to-use" },
+      { name: "FAQ", href: "/faq" },
+      { name: "Blog", href: "/blog" },
     ],
     legal: [
-      { name: 'Terms', href: '/terms' },
-      { name: 'Service', href: '/service' },
-      { name: 'Privacy', href: '/privacy' },
+      { name: "Terms and Privacy", href: "/terms" },
+      { name: "Service", href: "/service" },
     ],
     social: [
       {
-        name: 'GitHub',
-        href: 'https://github.com/your-username/xml-prompt-editor',
-        icon: (props: any) => (
+        name: "GitHub",
+        href: "https://github.com/CreateSun/xml-prompt-editor",
+        icon: (props: React.SVGProps<SVGSVGElement>) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
             <path
               fillRule="evenodd"
@@ -30,18 +27,19 @@ const Footer = () => {
         ),
       },
     ],
-  }
+  };
 
   return (
     <footer className="bg-background border-t border-border">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+        <div className="flex flex-col md:flex-row justify-between">
           <div className="space-y-8 xl:col-span-1">
             <span className="text-xl font-bold text-foreground">
               XML Prompt Editor
             </span>
-            <p className="text-foreground-muted text-base">
-              Professional XML template editor for AI prompts. Create, edit, and manage XML prompts with our intuitive editor.
+            <p className="text-foreground-muted text-base max-w-xl">
+              Professional XML template editor for AI prompts. Create, edit, and
+              manage XML prompts with our intuitive editor.
             </p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
@@ -56,53 +54,52 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-foreground-muted tracking-wider uppercase">
-                  Main
-                </h3>
-                <ul className="mt-4 space-y-4">
-                  {navigation.main.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-base text-foreground-muted hover:text-foreground"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-foreground-muted tracking-wider uppercase">
-                  Legal
-                </h3>
-                <ul className="mt-4 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-base text-foreground-muted hover:text-foreground"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="md:grid md:grid-cols-2 md:gap-8">
+            <div>
+              <h3 className="text-sm font-semibold text-foreground-muted tracking-wider uppercase">
+                Main
+              </h3>
+              <ul className="mt-4 space-y-4">
+                {navigation.main.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-base text-foreground-muted hover:text-foreground"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-12 md:mt-0">
+              <h3 className="text-sm font-semibold text-foreground-muted tracking-wider uppercase">
+                Legal
+              </h3>
+              <ul className="mt-4 space-y-4">
+                {navigation.legal.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-base text-foreground-muted hover:text-foreground"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-base text-foreground-muted xl:text-center">
-            &copy; {new Date().getFullYear()} XML Prompt Editor. All rights reserved.
+            &copy; {new Date().getFullYear()} XML Prompt Editor. All rights
+            reserved.
           </p>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

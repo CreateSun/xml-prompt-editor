@@ -23,11 +23,11 @@ const Hero = () => {
   ]
 
   return (
-    <div className="bg-background min-h-screen">
-      <div className="grid lg:grid-cols-2 min-h-screen">
+    <div className="from-background bg-gradient-to-r from-50% to-50% to-background-secondary ">
+      <div className="grid lg:grid-cols-2 min-h-[calc(100vh-100px)] max-w-7xl mx-auto">
         {/* 左侧内容区域 */}
         <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="max-w-2xl">
+          <div className="max-w-xl">
             <div className="text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-foreground sm:text-5xl md:text-6xl">
                 <span className="block xl:inline">Professional</span>{' '}
@@ -64,8 +64,8 @@ const Hero = () => {
         </div>
 
         {/* 右侧装饰区域 */}
-        <div className="bg-background-secondary flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="text-center text-foreground max-w-md">
+        <div className=" flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="text-center text-foreground max-w-xl">
             <Code className="mx-auto h-24 w-24 mb-6 opacity-90" />
             <h3 className="text-3xl font-bold mb-3">XML Editor</h3>
             <p className="text-xl opacity-80 mb-6">Professional & Intuitive</p>

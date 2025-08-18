@@ -4,12 +4,11 @@ import { useState, useEffect } from 'react'
 import { XMLTemplate, presetTemplates } from '@/lib/templates/presets'
 import XMLEditor from '@/components/editor/XMLEditor'
 import TemplateSelector from '@/components/editor/TemplateSelector'
-import ValidationPanel from '@/components/editor/ValidationPanel'
 
 export default function FullXMLEditor() {
   const [xmlContent, setXmlContent] = useState('')
   const [currentTemplate, setCurrentTemplate] = useState<XMLTemplate | null>(null)
-  const [showTemplates, setShowTemplates] = useState(false)
+  const [showTemplates, setShowTemplates] = useState(true)
 
   // 加载默认模板
   useEffect(() => {
@@ -23,7 +22,7 @@ export default function FullXMLEditor() {
   const handleTemplateSelect = (template: XMLTemplate) => {
     setXmlContent(template.content)
     setCurrentTemplate(template)
-    setShowTemplates(false)
+    // setShowTemplates(false)
   }
 
   const handleContentChange = (newContent: string) => {
@@ -32,11 +31,6 @@ export default function FullXMLEditor() {
     if (currentTemplate && newContent !== currentTemplate.content) {
       setCurrentTemplate(null)
     }
-  }
-
-  const handleValidationErrorClick = (line: number, column: number) => {
-    // 这里可以实现跳转到编辑器特定位置的功能
-    console.log(`Navigate to line ${line}, column ${column}`)
   }
 
   return (
@@ -57,14 +51,6 @@ export default function FullXMLEditor() {
           {/* Left Sidebar - Templates */}
           <div className="lg:col-span-1">
             <div className="sticky top-8">
-              <div className="mb-4">
-                <button
-                  onClick={() => setShowTemplates(!showTemplates)}
-                  className="w-full px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors"
-                >
-                  {showTemplates ? 'Hide' : 'Show'} Templates
-                </button>
-              </div>
               
               {showTemplates && (
                 <TemplateSelector
@@ -76,81 +62,13 @@ export default function FullXMLEditor() {
           </div>
 
           {/* Main Editor */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <XMLEditor
               value={xmlContent}
               onChange={handleContentChange}
               height="600px"
               className="w-full"
             />
-          </div>
-
-          {/* Right Sidebar - Validation */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8 space-y-6">
-              {/* Current Template Info */}
-              {currentTemplate && (
-                <div className="bg-background-secondary rounded-lg border border-border p-4">
-                  <h3 className="text-lg font-medium text-foreground mb-2">
-                    Current Template
-                  </h3>
-                  <p className="text-sm text-foreground-muted mb-2">
-                    {currentTemplate.name}
-                  </p>
-                  <p className="text-xs text-foreground-muted">
-                    {currentTemplate.description}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-1">
-                    {currentTemplate.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Validation Panel */}
-              <ValidationPanel
-                content={xmlContent}
-                onErrorClick={handleValidationErrorClick}
-              />
-
-              {/* Quick Actions */}
-              <div className="bg-background-secondary rounded-lg border border-border p-4">
-                <h3 className="text-lg font-medium text-foreground mb-3">
-                  Quick Actions
-                </h3>
-                <div className="space-y-2">
-                  <button
-                    onClick={() => {
-                      const formatted = xmlContent
-                        .replace(/>\s+</g, '><')
-                        .replace(/\n\s*/g, '\n')
-                      setXmlContent(formatted)
-                    }}
-                    className="w-full px-3 py-2 text-sm text-foreground bg-background border border-border rounded hover:bg-background-secondary transition-colors"
-                  >
-                    Format XML
-                  </button>
-                  <button
-                    onClick={() => {
-                      const minified = xmlContent
-                        .replace(/>\s+</g, '><')
-                        .replace(/\n/g, '')
-                        .replace(/\s+/g, ' ')
-                      setXmlContent(minified)
-                    }}
-                    className="w-full px-3 py-2 text-sm text-foreground bg-background border border-border rounded hover:bg-background-secondary transition-colors"
-                  >
-                    Minify XML
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Templates', href: '/editor/templates' },
+    // { name: 'Templates', href: '/templates' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Blog', href: '/blog' },
   ]
@@ -47,7 +47,7 @@ const Header = () => {
           </nav>
 
           {/* Theme Toggle */}
-          <div className="hidden md:flex items-center space-x-2">
+          {/* <div className="hidden md:flex items-center space-x-2">
             <button
               onClick={() => toggleTheme('light')}
               className={`p-2 rounded-md ${
@@ -78,7 +78,7 @@ const Header = () => {
             >
               <Monitor className="h-5 w-5" />
             </button>
-          </div>
+          </div> */}
 
           {/* Mobile menu button */}
           <div className="md:hidden">
